@@ -1,0 +1,8 @@
+../Core/Src/main.c:76:5:main	1
+../Core/Src/main.c:112:6:SystemClock_Config	3
+../Core/Src/main.c:154:13:MX_I2C1_Init	2
+../Core/Src/main.c:184:9:LM75_ReadTemperature	2
+../Core/Src/main.c:199:6:UART_Transmit	2
+../Core/Src/main.c:209:13:MX_USART1_UART_Init	2
+../Core/Src/main.c:242:13:MX_GPIO_Init	1
+../Core/Src/main.c:263:6:Error_Handler	1

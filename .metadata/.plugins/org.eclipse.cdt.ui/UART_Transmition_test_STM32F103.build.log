@@ -1,0 +1,10 @@
+17:44:50 **** Incremental Build of configuration Debug for project UART_Transmition_test_STM32F103 ****
+make -j4 all 
+arm-none-eabi-size  UART_Transmition_test_STM32F103.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5972	     12	   1644	   7628	   1dcc	UART_Transmition_test_STM32F103.elf
+Finished building: default.size.stdout
+ 
+
+17:44:51 Build Finished. 0 errors, 0 warnings. (took 445ms)
+

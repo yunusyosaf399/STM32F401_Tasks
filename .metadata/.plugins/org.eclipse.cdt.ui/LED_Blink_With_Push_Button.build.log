@@ -1,0 +1,10 @@
+13:02:14 **** Incremental Build of configuration Debug for project LED_Blink_With_Push_Button ****
+make -j4 all 
+arm-none-eabi-size  LED_Blink_With_Push_Button.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2644	     12	   1572	   4228	   1084	LED_Blink_With_Push_Button.elf
+Finished building: default.size.stdout
+ 
+
+13:02:15 Build Finished. 0 errors, 0 warnings. (took 1s.179ms)
+

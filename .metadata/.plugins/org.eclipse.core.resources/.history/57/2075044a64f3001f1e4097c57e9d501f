@@ -1,0 +1,70 @@
+#include "main.h"
+
+// Timer handle for TIM2
+TIM_HandleTypeDef htim2;
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_TIM2_Init(void);
+
+int main(void)
+{
+  // Initialize HAL Library
+  HAL_Init();
+
+  // Configure the system clock
+  SystemClock_Config();
+
+  // Initialize all peripherals
+  MX_GPIO_Init();
+  MX_TIM2_Init();
+
+  // Start PWM on TIM2 Channel 1 (PA5)
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+
+  while (1)
+  {
+    // You can modify the PWM duty cycle dynamically if needed
+    // For example, changing the PWM duty cycle (increase/decrease)
+    // __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, new_duty_cycle);
+  }
+}
+
+static void MX_TIM2_Init(void)
+{
+  // Timer configuration structure
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  // Configure the timer (TIM2)
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 99; // Set prescaler (e.g., 100 MHz / 100 = 1 MHz)
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 1000; // Set auto-reload register (ARR) for PWM frequency
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+  {
+    // Initialization error
+    Error_Handler();
+  }
+
+  // PWM configuration for Channel 1
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 500; // Set the compare value for 50% duty cycle
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    // Configuration error
+    Error_Handler();
+  }
+}
+
+// Error handler (you can customize it)
+void Error_Handler(void)
+{
+  while (1)
+  {
+    // Stay here if there's an error
+  }
+}

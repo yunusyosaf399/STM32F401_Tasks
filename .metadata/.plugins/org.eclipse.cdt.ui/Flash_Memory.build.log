@@ -1,0 +1,58 @@
+17:40:50 **** Incremental Build of configuration Debug for project Flash_Memory ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:137:61: warning: format '%X' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  137 |                 sprintf(dataString, "Cycle: %lu, Data: 0x%08X\r\n", cycle, readData);
+      |                                                          ~~~^              ~~~~~~~~
+      |                                                             |              |
+      |                                                             unsigned int   uint32_t {aka long unsigned int}
+      |                                                          %08lX
+../Core/Src/main.c:138:66: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  138 |                 HAL_UART_Transmit(&huart1, (uint8_t*)dataString, strlen(dataString), 20);
+      |                                                                  ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   21 | #include <stdio.h>  // For sprintf
+  +++ |+#include <string.h>
+   22 | /* Private includes ----------------------------------------------------------*/
+../Core/Src/main.c:138:66: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  138 |                 HAL_UART_Transmit(&huart1, (uint8_t*)dataString, strlen(dataString), 20);
+      |                                                                  ^~~~~~
+../Core/Src/main.c:138:66: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:150:75: warning: format '%X' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  150 |                 sprintf(corruptionMsg, "Memory Corrupted! Last read: 0x%08X\r\n", readDataAfter);
+      |                                                                        ~~~^       ~~~~~~~~~~~~~
+      |                                                                           |       |
+      |                                                                           |       uint32_t {aka long unsigned int}
+      |                                                                           unsigned int
+      |                                                                        %08lX
+../Core/Src/main.c:151:69: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  151 |                 HAL_UART_Transmit(&huart1, (uint8_t*)corruptionMsg, strlen(corruptionMsg), 20);
+      |                                                                     ^~~~~~
+../Core/Src/main.c:151:69: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:137:45: warning: '%lu' directive writing between 1 and 5 bytes into a region of size 2 [-Wformat-overflow=]
+  137 |                 sprintf(dataString, "Cycle: %lu, Data: 0x%08X\r\n", cycle, readData);
+      |                                             ^~~
+../Core/Src/main.c:137:37: note: directive argument in the range [0, 99999]
+  137 |                 sprintf(dataString, "Cycle: %lu, Data: 0x%08X\r\n", cycle, readData);
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:137:17: note: 'sprintf' output between 29 and 33 bytes into a destination of size 9
+  137 |                 sprintf(dataString, "Cycle: %lu, Data: 0x%08X\r\n", cycle, readData);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Flash_Memory.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\yunusyosaf\Documents\STM32Workspace\Flash_Memory\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Flash_Memory.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Flash_Memory.elf
+ 
+arm-none-eabi-size  Flash_Memory.elf 
+arm-none-eabi-objdump -h -S Flash_Memory.elf  > "Flash_Memory.list"
+arm-none-eabi-objcopy  -O ihex Flash_Memory.elf  "Flash_Memory.hex"
+   text	   data	    bss	    dec	    hex	filename
+  12700	     92	   2004	  14796	   39cc	Flash_Memory.elf
+Finished building: default.size.stdout
+ 
+Finished building: Flash_Memory.hex
+ 
+Finished building: Flash_Memory.list
+ 
+
+17:40:52 Build Finished. 0 errors, 6 warnings. (took 1s.680ms)
+

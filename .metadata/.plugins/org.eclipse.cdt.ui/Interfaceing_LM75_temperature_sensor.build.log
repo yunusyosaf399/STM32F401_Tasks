@@ -1,0 +1,10 @@
+19:07:48 **** Incremental Build of configuration Debug for project Interfaceing_LM75_temperature_sensor ****
+make -j4 all 
+arm-none-eabi-size  Interfaceing_LM75_temperature_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34176	    468	   2060	  36704	   8f60	Interfaceing_LM75_temperature_sensor.elf
+Finished building: default.size.stdout
+ 
+
+19:07:49 Build Finished. 0 errors, 0 warnings. (took 629ms)
+

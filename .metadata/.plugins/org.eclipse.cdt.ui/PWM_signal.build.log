@@ -1,0 +1,19 @@
+15:36:06 **** Incremental Build of configuration Debug for project PWM_signal ****
+make -j4 all 
+arm-none-eabi-gcc -o "PWM_signal.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\yunusyosaf\Documents\STM32Workspace\PWM_signal\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PWM_signal.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PWM_signal.elf
+ 
+arm-none-eabi-size  PWM_signal.elf 
+arm-none-eabi-objdump -h -S PWM_signal.elf  > "PWM_signal.list"
+arm-none-eabi-objcopy  -O ihex PWM_signal.elf  "PWM_signal.hex"
+   text	   data	    bss	    dec	    hex	filename
+   9860	     12	   1644	  11516	   2cfc	PWM_signal.elf
+Finished building: default.size.stdout
+ 
+Finished building: PWM_signal.hex
+Finished building: PWM_signal.list
+ 
+ 
+
+15:36:07 Build Finished. 0 errors, 0 warnings. (took 1s.303ms)
+

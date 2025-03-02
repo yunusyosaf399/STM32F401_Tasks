@@ -1,0 +1,10 @@
+14:19:40 **** Incremental Build of configuration Debug for project OLED_Display_1306_I2C_Interface ****
+make -j4 all 
+arm-none-eabi-size  OLED_Display_1306_I2C_Interface.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20232	     12	   2684	  22928	   5990	OLED_Display_1306_I2C_Interface.elf
+Finished building: default.size.stdout
+ 
+
+14:19:40 Build Finished. 0 errors, 0 warnings. (took 808ms)
+
