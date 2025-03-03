@@ -5236,3 +5236,19 @@ Finished building: PWM_signal_.list
  
 Finished building: PWM_signal_.hex
  
+10:31:46 **** Incremental Build of configuration Debug for project RTC ****
+make -j4 all 
+arm-none-eabi-gcc -o "RTC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\yunusyosaf\Documents\STM32Workspace\RTC\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTC.elf
+ 
+arm-none-eabi-size  RTC.elf 
+arm-none-eabi-objdump -h -S RTC.elf  > "RTC.list"
+arm-none-eabi-objcopy  -O ihex RTC.elf  "RTC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  14364	     92	   2004	  16460	   404c	RTC.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTC.hex
+ 
+Finished building: RTC.list
+ 

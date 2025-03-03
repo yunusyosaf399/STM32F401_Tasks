@@ -52,6 +52,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 RTC.list \
 
+OBJCOPY_HEX += \
+RTC.hex \
+
 
 # All Target
 all: main-build
@@ -75,12 +78,17 @@ RTC.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+RTC.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "RTC.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) RTC.elf RTC.list RTC.map default.size.stdout
+	-$(RM) RTC.elf RTC.hex RTC.list RTC.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
