@@ -1,4 +1,4 @@
-17:53:59 **** Incremental Build of configuration Debug for project ExternalInterrupt ****
+09:57:04 **** Incremental Build of configuration Debug for project ExternalInterrupt ****
 make -j4 all 
 arm-none-eabi-size  ExternalInterrupt.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  ExternalInterrupt.elf
 Finished building: default.size.stdout
  
 
-17:53:59 Build Finished. 0 errors, 0 warnings. (took 696ms)
+09:57:04 Build Finished. 0 errors, 0 warnings. (took 528ms)
 
