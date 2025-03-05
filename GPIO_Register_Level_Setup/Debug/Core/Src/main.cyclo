@@ -1,0 +1,7 @@
+../Core/Src/main.c:29:6:GPIOB_Setup	1
+../Core/Src/main.c:48:6:Timer2_Delay_ms	2
+../Core/Src/main.c:70:6:GPIOB_Toggle	1
+../Core/Src/main.c:84:5:main	1
+../Core/Src/main.c:126:6:SystemClock_Config	3
+../Core/Src/main.c:168:13:MX_GPIO_Init	1
+../Core/Src/main.c:188:6:Error_Handler	1
